@@ -4,20 +4,20 @@
 <link rel="import" href="../paper-spinner/paper-spinner.html">
 <link rel="import" href="../iron-resizable-behavior/iron-resizable-behavior.html">
 <!--
-`google-chart` encapsulates Google Charts as a web component, allowing you to easily visualize
+`cbn-google-chart` encapsulates Google Charts as a web component, allowing you to easily visualize
 data. From simple line charts to complex hierarchical tree maps, the chart element provides a
 number of ready-to-use chart types.
 
-    <google-chart
+    <cbn-google-chart
       type='pie'
       options='{"title": "Distribution of days in 2001Q1"}'
       cols='[{"label":"Month", "type":"string"}, {"label":"Days", "type":"number"}]'
       rows='[["Jan", 31],["Feb", 28],["Mar", 31]]'>
-    </google-chart>
+    </cbn-google-chart>
 
 Height and width are specified as style attributes:
 
-    google-chart {
+    cbn-google-chart {
       height: 300px;
       width: 50em;
     }
@@ -39,8 +39,8 @@ Data can be provided in one of three ways:
       data='http://example.com/chart-data.json'
 @demo
 -->
-<dom-module id="google-chart">
-  <link rel="import" type="css" href="google-chart.css">
+<dom-module id="cbn-google-chart">
+  <link rel="import" type="css" href="cbn-google-chart.css">
   <template>
     <iron-ajax id="ajax" handle-as="json" url="{{data}}"
       on-response="_externalDataLoaded"></iron-ajax>
@@ -57,18 +57,18 @@ Data can be provided in one of three ways:
 
   Polymer({
 
-    is: 'google-chart',
+    is: 'cbn-google-chart',
 
     /**
      * Fired when the graph is displayed.
      *
-     * @event google-chart-render
+     * @event cbn-google-chart-render
      */
 
     /**
      * Fired when the user makes a selection in the chart.
      *
-     * @event google-chart-select
+     * @event cbn-google-chart-select
      * @param {object} detail
      *   @param {array} detail.selection The user-defined selection.
      */
@@ -255,7 +255,6 @@ Data can be provided in one of three ways:
      * @return {Object} Returns null.
      */
     drawChart: function() {
-      console.log("redraw");
       if (this._canDraw) {
         if (!this.options) {
           this.options = {};
@@ -269,13 +268,13 @@ Data can be provided in one of three ways:
         if (this._chartObject) {
           google.visualization.events.addOneTimeListener(this._chartObject,
               'ready', function() {
-                  this.fire('google-chart-render');
+                  this.fire('cbn-google-chart-render');
               }.bind(this));
 
           google.visualization.events.addListener(this._chartObject,
               'select', function() {
                   this.selection = this._chartObject.getSelection();
-                  this.fire('google-chart-select',
+                  this.fire('cbn-google-chart-select',
                       { selection: this._chartObject.getSelection() });
               }.bind(this));
 

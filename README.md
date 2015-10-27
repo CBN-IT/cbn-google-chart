@@ -1,4 +1,4 @@
-google-chart
+cbn-google-chart
 ============
 
 [Google Charts API](https://developers.google.com/chart/) web components.
