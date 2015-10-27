@@ -1,7 +1,8 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../iron-ajax/iron-ajax.html">
 <link rel="import" href="../google-apis/google-legacy-loader.html">
-
+<link rel="import" href="../paper-spinner/paper-spinner.html">
+<link rel="import" href="../iron-resizable-behavior/iron-resizable-behavior.html">
 <!--
 `google-chart` encapsulates Google Charts as a web component, allowing you to easily visualize
 data. From simple line charts to complex hierarchical tree maps, the chart element provides a
@@ -43,7 +44,9 @@ Data can be provided in one of three ways:
   <template>
     <iron-ajax id="ajax" handle-as="json" url="{{data}}"
       on-response="_externalDataLoaded"></iron-ajax>
-    <div id="chartdiv"></div>
+    <div id="chartdiv">
+      <paper-spinner active></paper-spinner>
+    </div>
     <google-legacy-loader on-api-load="_readyForAction"></google-legacy-loader>
   </template>
 </dom-module>
@@ -199,6 +202,12 @@ Data can be provided in one of three ways:
       '_loadData(rows, cols, data)'
     ],
 
+    behaviors: [Polymer.IronResizableBehavior],
+
+    listeners:{
+      "iron-resize": "drawChart"
+    },
+
     _packages: null,
 
     _chartObject: null,
@@ -246,6 +255,7 @@ Data can be provided in one of three ways:
      * @return {Object} Returns null.
      */
     drawChart: function() {
+      console.log("redraw");
       if (this._canDraw) {
         if (!this.options) {
           this.options = {};
