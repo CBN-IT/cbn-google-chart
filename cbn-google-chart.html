@@ -339,13 +339,10 @@ Data can be provided in one of three ways:
           this.$.ajax.generateRequest();
         } else {
           var dataTable = this._createDataTable();
+          this._dataTable = dataTable;
           if (dataTable) {
             this._canDraw = true;
-            this._dataTable = dataTable;
             this.drawChart();
-          } else {
-            this._canDraw = false;
-            this._dataTable = null;
           }
         }
       }
