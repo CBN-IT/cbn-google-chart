@@ -350,8 +350,12 @@ Data can be provided in one of three ways:
 
     _externalDataLoaded: function(e) {
       var dataTable = this._createDataTable(e.detail.response);
-      this._canDraw = true;
       this._dataTable = dataTable;
+      if (dataTable === null) {
+        this._canDraw = false;
+        return;
+      }
+      this._canDraw = true;
       this.drawChart();
     },
 
