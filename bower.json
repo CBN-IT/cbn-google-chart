@@ -1,35 +1,36 @@
 {
-    "name": "cbn-google-chart",
-    "version": "1.0.3",
-    "description": "Encapsulates Google Charts into a web component",
-    "homepage": "https://googlewebcomponents.github.io/google-chart",
-    "main": "cbn-google-chart.html",
-    "authors": [
-        "Sérgio Gomes"
-    ],
-    "license": "Apache2",
-    "ignore": [
-        "/.*",
-        "/test/"
-    ],
-    "keywords": [
-        "web-component",
-        "web-components",
-        "polymer",
-        "chart",
-        "charts",
-        "google-visualization",
-        "google"
-    ],
-    "dependencies": {
-        "polymer": "Polymer/polymer#1.3.1",
-        "google-apis": "GoogleWebComponents/google-apis#^1.1.2",
-        "iron-ajax": "PolymerElements/iron-ajax#1.2.0",
-        "paper-spinner": "PolymerElements/paper-spinner#1.1.1",
-        "iron-resizable-behavior": "PolymerElements/iron-resizable-behavior#1.0.3"
-    },
-    "devDependencies": {
-        "iron-component-page": "PolymerElements/iron-component-page#^1.0.2",
-        "web-component-tester": "*"
-    }
+  "name": "cbn-google-chart",
+  "version": "1.0.3",
+  "description": "Encapsulates Google Charts into a web component",
+  "homepage": "https://googlewebcomponents.github.io/google-chart",
+  "main": "cbn-google-chart.html",
+  "authors": [
+    "Sérgio Gomes"
+  ],
+  "license": "Apache2",
+  "ignore": [
+    "/.*",
+    "/test/"
+  ],
+  "keywords": [
+    "web-component",
+    "web-components",
+    "polymer",
+    "chart",
+    "charts",
+    "google-visualization",
+    "google"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#1.3.1",
+    "google-apis": "GoogleWebComponents/google-apis#^1.1.2",
+    "iron-ajax": "PolymerElements/iron-ajax#1.2.0",
+    "paper-spinner": "PolymerElements/paper-spinner#1.1.1",
+    "iron-resizable-behavior": "PolymerElements/iron-resizable-behavior#1.0.3"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.2",
+    "web-component-tester": "*",
+    "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^1.2.5"
+  }
 }

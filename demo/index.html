@@ -7,6 +7,8 @@
 
   <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
   <link rel="import" href="../cbn-google-chart.html">
+  <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+  <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
   <style>
     code {
       color: #007000;
@@ -35,16 +37,22 @@
 
 </head>
 <body>
-
-  <p>A simple <code>cbn-google-chart</code> looks like this:</p>
-
-  <cbn-google-chart
-    cols='[{"label": "Data", "type": "string"},{"label": "Value", "type": "number"}]'
-    rows='[["Something", 1]]'>
-  </cbn-google-chart>
-
-  <p>Charts can be resized with CSS, but you'll need to call the <code>drawChart</code> method when the size changes.</p>
-  <p>Here's a basic responsive example using only CSS and JS. You could also use <code>&lt;iron-media-query&gt;</code>.</p>
+	<div style="margin: 20px auto; width: 800px;">
+		<h1>Cbn-Google-Chart Demo</h1>
+	
+		<form id="demoForm" is="cbn-form" model>
+			<p>A simple <code>cbn-google-chart</code> looks like this:</p>
+			<demo-snippet class="centered-demo" style="position:relative">
+				<template is="dom-bind">
+					<cbn-google-chart
+						cols='[{"label": "Data", "type": "string"},{"label": "Value", "type": "number"}]'
+						rows='[["Something", 1]]'>
+					</cbn-google-chart>
+				</template>
+			</demo-snippet>
+	  </form>
+	</div>
+	<br/>
 
   <style>
     /* Phone and tablet */
@@ -69,26 +77,45 @@
     });
   </script>
 
-  <cbn-google-chart
-    id='resizing_chart'
-    type='column'
-    options='{"title": "Responsive chart",
-              "vAxis": {"minValue" : 0, "maxValue": 10}}'
-    cols='[{"label": "Data", "type": "string"},{"label": "Value", "type": "number"}]'
-    rows='[["Col1", 5.0],["Col2", 5.0],["Col3", 5.0]]'>
-  </cbn-google-chart>
+	<div style="margin: 20px auto; width: 800px;">
+		<form id="demoForm" is="cbn-form" model>
+			<p>Charts can be resized with CSS, but you'll need to call the <code>drawChart</code> method when the size changes.</p>
+			<p>Here's a basic responsive example using only CSS and JS. You could also use <code>&lt;iron-media-query&gt;</code>.</p>
+			<demo-snippet class="centered-demo" style="position:relative">
+				<template is="dom-bind">
+					<cbn-google-chart
+						id='resizing_chart'
+						type='column'
+						options='{"title": "Responsive chart",
+				  "vAxis": {"minValue" : 0, "maxValue": 10}}'
+						cols='[{"label": "Data", "type": "string"},{"label": "Value", "type": "number"}]'
+						rows='[["Col1", 5.0],["Col2", 5.0],["Col3", 5.0]]'>
+					</cbn-google-chart>
+				</template>
+			</demo-snippet>
+		</form>
+	</div>
+	<br/>
 
-  <p>Here's a chart that changes data every 3 seconds:</p>
-
-  <cbn-google-chart
-    id='mutating_chart'
-    type='column'
-    options='{"title": "Random data",
-              "vAxis": {"minValue" : 0, "maxValue": 10},
-              "animation": {"duration": "1000"}}'
-    cols='[{"label": "Data", "type": "string"},{"label": "Value", "type": "number"}]'
-    rows='[["Col1", 5.0],["Col2", 5.0],["Col3", 5.0]]'>
-  </cbn-google-chart>
+	<div style="margin: 20px auto; width: 800px;">
+		<form id="demoForm" is="cbn-form" model>
+			<p>Here's a chart that changes data every 3 seconds:</p>
+			<demo-snippet class="centered-demo" style="position:relative">
+				<template is="dom-bind">
+					<cbn-google-chart
+						id='mutating_chart'
+						type='column'
+						options='{"title": "Random data",
+				  "vAxis": {"minValue" : 0, "maxValue": 10},
+				  "animation": {"duration": "1000"}}'
+						cols='[{"label": "Data", "type": "string"},{"label": "Value", "type": "number"}]'
+						rows='[["Col1", 5.0],["Col2", 5.0],["Col3", 5.0]]'>
+					</cbn-google-chart>
+				</template>
+			</demo-snippet>
+		</form>
+	</div>
+	<br/>
 
   <script>
     function getRandomValue() {
@@ -104,20 +131,28 @@
     }, 3000);
   </script>
 
-  <p>Here's a pie chart with an area selection:</p>
-
-  <div id="selection-demo">
-    <cbn-google-chart
-      type="pie"
-      id="selection-chart"
-      options='{"title": "Distribution of days in 2001H1"}'
-      cols='[{"label": "Month", "type": "string"},{"label": "Days", "type": "number"}]'
-      rows='[["Jan", 31],["Feb", 28],["Mar", 31],["Apr", 30],["May", 31],["Jun", 30]]'>
-    </cbn-google-chart>
-    <div id="selection-display">
-      Selected row: <span id="selection-label">None</span>.
-    </div>
-  </div>
+	<div style="margin: 20px auto; width: 800px;">
+		<form id="demoForm" is="cbn-form" model>
+			<p>Here's a pie chart with an area selection:</p>
+			<demo-snippet class="centered-demo" style="position:relative">
+				<template is="dom-bind">
+					<div id="selection-demo">
+						<cbn-google-chart
+							type="pie"
+							id="selection-chart"
+							options='{"title": "Distribution of days in 2001H1"}'
+							cols='[{"label": "Month", "type": "string"},{"label": "Days", "type": "number"}]'
+							rows='[["Jan", 31],["Feb", 28],["Mar", 31],["Apr", 30],["May", 31],["Jun", 30]]'>
+						</cbn-google-chart>
+						<div id="selection-display">
+							Selected row: <span id="selection-label">None</span>.
+						</div>
+					</div>
+				</template>
+			</demo-snippet>
+		</form>
+	</div>
+	<br/>
 
   <script>
     document.addEventListener('WebComponentsReady', function() {
@@ -136,60 +171,102 @@
     });
   </script>
 
-  <p>Here's a chart defined using <code>data</code>, rather than <code>rows</code> and <code>cols</code>:</p>
-
-  <cbn-google-chart
-    type='column'
-    options='{"title": "Inventory"}'
-    data='[["Year", "Things", "Stuff"],
+	<div style="margin: 20px auto; width: 800px;">
+		<form id="demoForm" is="cbn-form" model>
+			<p>Here's a chart defined using <code>data</code>, rather than <code>rows</code> and <code>cols</code>:</p>
+			<demo-snippet class="centered-demo" style="position:relative">
+				<template is="dom-bind">
+					<cbn-google-chart
+						type='column'
+						options='{"title": "Inventory"}'
+						data='[["Year", "Things", "Stuff"],
            ["2004", 1000, 400],
            ["2005", 1170, 460],
            ["2006", 660, 1120],
            ["2007", 1030, 540]]'>
-  </cbn-google-chart>
+					</cbn-google-chart>
+				</template>
+			</demo-snippet>
+		</form>
+	</div>
+	<br/>
 
-  <p>And one with some pretty complicated styling, where the data is loaded from an external JSON resource using the <code>data</code> attribute:</p>
+	<div style="margin: 20px auto; width: 800px;">
+		<form id="demoForm" is="cbn-form" model>
+			<p>And one with some pretty complicated styling, where the data is loaded from an external JSON resource using the <code>data</code> attribute:</p>
+			<demo-snippet class="centered-demo" style="position:relative">
+				<template is="dom-bind">
+					<cbn-google-chart
+						type='column'
+						options='{"title": "Bar height", "legend": "none"}'
+						data='chart-data.json'>
+					</cbn-google-chart>
+				</template>
+			</demo-snippet>
+		</form>
+	</div>
+	<br/>
 
-  <cbn-google-chart
-    type='column'
-    options='{"title": "Bar height", "legend": "none"}'
-    data='chart-data.json'>
-  </cbn-google-chart>
+	<div style="margin: 20px auto; width: 800px;">
+		<form id="demoForm" is="cbn-form" model>
+			<p>Website traffic data by country from an external JSON resource where the data is in raw DataTable format.</p>
+			<demo-snippet class="centered-demo" style="position:relative">
+				<template is="dom-bind">
+					<cbn-google-chart
+						type='column'
+						options='{"title": "Visitors by Country", "legend": "none"}'
+						data='country-data.json'>
+					</cbn-google-chart>
+				</template>
+			</demo-snippet>
+		</form>
+	</div>
+	<br/>
+	
+	<div style="margin: 20px auto; width: 800px;">
+		<h2>Chart gallery</h2>
+		<form id="demoForm" is="cbn-form" model>
+			<p>Here's an area chart:</p>
+			<demo-snippet class="centered-demo" style="position:relative">
+				<template is="dom-bind">
+					<cbn-google-chart
+						type='area'
+						options='{"title": "Days in a month"}'
+						cols='[{"label": "Month", "type": "string"},{"label": "Days", "type": "number"}]'
+						rows='[["Jan", 31],["Feb", 28],["Mar", 31],["Apr", 30],["May", 31],["Jun", 30]]'>
+					</cbn-google-chart>
+				</template>
+			</demo-snippet>
+		</form>
+	</div>
+	<br/>
 
-  <p>Website traffic data by country from an external JSON resource where the data is in raw DataTable format.</p>
+	<div style="margin: 20px auto; width: 800px;">
+		<form id="demoForm" is="cbn-form" model>
+			<p>Here's a bar chart:</p>
+			<demo-snippet class="centered-demo" style="position:relative">
+				<template is="dom-bind">
+					<cbn-google-chart
+						type='bar'
+						options='{"title": "Days in a month"}'
+						cols='[{"label": "Month", "type": "string"},{"label": "Days", "type": "number"}]'
+						rows='[["Jan", 31],["Feb", 28],["Mar", 31],["Apr", 30],["May", 31],["Jun", 30]]'>
+					</cbn-google-chart>
+				</template>
+			</demo-snippet>
+		</form>
+	</div>
+	<br/>
 
-  <cbn-google-chart
-    type='column'
-    options='{"title": "Visitors by Country", "legend": "none"}'
-    data='country-data.json'>
-  </cbn-google-chart>
-
-  <h2>Chart gallery</h2>
-
-  <p>Here's an area chart:</p>
-
-  <cbn-google-chart
-    type='area'
-    options='{"title": "Days in a month"}'
-    cols='[{"label": "Month", "type": "string"},{"label": "Days", "type": "number"}]'
-    rows='[["Jan", 31],["Feb", 28],["Mar", 31],["Apr", 30],["May", 31],["Jun", 30]]'>
-  </cbn-google-chart>
-
-  <p>Here's a bar chart:</p>
-
-  <cbn-google-chart
-    type='bar'
-    options='{"title": "Days in a month"}'
-    cols='[{"label": "Month", "type": "string"},{"label": "Days", "type": "number"}]'
-    rows='[["Jan", 31],["Feb", 28],["Mar", 31],["Apr", 30],["May", 31],["Jun", 30]]'>
-  </cbn-google-chart>
-
-  <p>Here's a bubble chart:</p>
-
-  <cbn-google-chart
-    type='bubble'
-    options='{}'
-    data='[["ID", "Life Expectancy", "Fertility Rate", "Region", "Population"],
+	<div style="margin: 20px auto; width: 800px;">
+		<form id="demoForm" is="cbn-form" model>
+			<p>Here's a bubble chart:</p>
+			<demo-snippet class="centered-demo" style="position:relative">
+				<template is="dom-bind">
+					<cbn-google-chart
+						type='bubble'
+						options='{}'
+						data='[["ID", "Life Expectancy", "Fertility Rate", "Region", "Population"],
            ["CAN", 80.66, 1.67, "North America", 33739900],
            ["DEU", 79.84, 1.36, "Europe",        81902307],
            ["DNK", 78.6,  1.84, "Europe",        5523095],
@@ -200,145 +277,246 @@
            ["ISR", 81.55, 2.96, "Middle East",   7485600],
            ["RUS", 68.6,  1.54, "Europe",        141850000],
            ["USA", 78.09, 2.05, "North America", 307007000]]'>
-  </cbn-google-chart>
+					</cbn-google-chart>
+				</template>
+			</demo-snippet>
+		</form>
+	</div>
+	<br/>
 
-  <p>Here's a candlestick chart:</p>
-
-  <cbn-google-chart
-    type='candlestick'
-    options='{"legend": "none"}'
-    data='[["Day", "low", "start", "end", "high"],
+	<div style="margin: 20px auto; width: 800px;">
+		<form id="demoForm" is="cbn-form" model>
+			<p>Here's a candlestick chart:</p>
+			<demo-snippet class="centered-demo" style="position:relative">
+				<template is="dom-bind">
+					<cbn-google-chart
+						type='candlestick'
+						options='{"legend": "none"}'
+						data='[["Day", "low", "start", "end", "high"],
            ["Mon", 20, 28, 38, 45],
            ["Tue", 31, 38, 55, 66],
            ["Wed", 50, 55, 77, 80],
            ["Thu", 77, 77, 66, 50],
            ["Fri", 68, 66, 22, 15]]'>
-  </cbn-google-chart>
+					</cbn-google-chart>
+				</template>
+			</demo-snippet>
+		</form>
+	</div>
+	<br/>
 
-  <p>Here's a column chart:</p>
+	<div style="margin: 20px auto; width: 800px;">
+		<form id="demoForm" is="cbn-form" model>
+			<p>Here's a column chart:</p>
+			<demo-snippet class="centered-demo" style="position:relative">
+				<template is="dom-bind">
+					<cbn-google-chart
+						type='column'
+						options='{"title": "Days in a month"}'
+						cols='[{"label": "Month", "type": "string"},{"label": "Days", "type": "number"}]'
+						rows='[["Jan", 31],["Feb", 28],["Mar", 31],["Apr", 30],["May", 31],["Jun", 30]]'>
+					</cbn-google-chart>
+				</template>
+			</demo-snippet>
+		</form>
+	</div>
+	<br/>
 
-  <cbn-google-chart
-    type='column'
-    options='{"title": "Days in a month"}'
-    cols='[{"label": "Month", "type": "string"},{"label": "Days", "type": "number"}]'
-    rows='[["Jan", 31],["Feb", 28],["Mar", 31],["Apr", 30],["May", 31],["Jun", 30]]'>
-  </cbn-google-chart>
-
-  <p>Here's a combo chart:</p>
-
-  <cbn-google-chart
-    type='combo'
-    options='{"seriesType": "bars", "series": {"2": {"type": "line"}}}'
-    data='[["Day", "A", "B", "C"],
+	<div style="margin: 20px auto; width: 800px;">
+		<form id="demoForm" is="cbn-form" model>
+			<p>Here's a combo chart:</p>
+			<demo-snippet class="centered-demo" style="position:relative">
+				<template is="dom-bind">
+					<cbn-google-chart
+						type='combo'
+						options='{"seriesType": "bars", "series": {"2": {"type": "line"}}}'
+						data='[["Day", "A", "B", "C"],
            ["Mon", 20, 45, 28],
            ["Tue", 31, 66, 38],
            ["Wed", 50, 80, 55],
            ["Thu", 77, 50, 77],
            ["Fri", 68, 15, 66]]'>
-  </cbn-google-chart>
+					</cbn-google-chart>
+				</template>
+			</demo-snippet>
+		</form>
+	</div>
+	<br/>
 
-  <p>Here's a geo chart:</p>
-
-  <cbn-google-chart
-    type='geo'
-    data='[["Country", "Popularity"],
+	<div style="margin: 20px auto; width: 800px;">
+		<form id="demoForm" is="cbn-form" model>
+			<p>Here's a geo chart:</p>
+			<demo-snippet class="centered-demo" style="position:relative">
+				<template is="dom-bind">
+					<cbn-google-chart
+						type='geo'
+						data='[["Country", "Popularity"],
            ["Germany", 200],
            ["United States", 300],
            ["Brazil", 400],
            ["Canada", 500],
            ["France", 600],
            ["RU", 700]]'>
-  </cbn-google-chart>
+					</cbn-google-chart>
+				</template>
+			</demo-snippet>
+		</form>
+	</div>
+	<br/>
 
-  <p>Here's a histogram:</p>
+	<div style="margin: 20px auto; width: 800px;">
+		<form id="demoForm" is="cbn-form" model>
+			<p>Here's a histogram:</p>
+			<demo-snippet class="centered-demo" style="position:relative">
+				<template is="dom-bind">
+					<cbn-google-chart
+						type='histogram'
+						options='{"title": "Days in a month", "legend": "none", "histogram": { "bucketSize": 1 }}'
+						cols='[{"label": "Month", "type": "string"},{"label": "Days", "type": "number"}]'
+						rows='[["Jan", 31],["Feb", 28],["Mar", 31],["Apr", 30],["May", 31],["Jun", 30]]'>
+					</cbn-google-chart>
+				</template>
+			</demo-snippet>
+		</form>
+	</div>
+	<br/>
 
-  <cbn-google-chart
-    type='histogram'
-    options='{"title": "Days in a month", "legend": "none", "histogram": { "bucketSize": 1 }}'
-    cols='[{"label": "Month", "type": "string"},{"label": "Days", "type": "number"}]'
-    rows='[["Jan", 31],["Feb", 28],["Mar", 31],["Apr", 30],["May", 31],["Jun", 30]]'>
-  </cbn-google-chart>
+	<div style="margin: 20px auto; width: 800px;">
+		<form id="demoForm" is="cbn-form" model>
+			<p>Here's a line chart:</p>
+			<demo-snippet class="centered-demo" style="position:relative">
+				<template is="dom-bind">
+					<cbn-google-chart
+						type='line'
+						options='{"title": "Days in a month"}'
+						cols='[{"label": "Month", "type": "string"},{"label": "Days", "type": "number"}]'
+						rows='[["Jan", 31],["Feb", 28],["Mar", 31],["Apr", 30],["May", 31],["Jun", 30]]'>
+					</cbn-google-chart>
+				</template>
+			</demo-snippet>
+		</form>
+	</div>
+	<br/>
 
-  <p>Here's a line chart:</p>
+	<div style="margin: 20px auto; width: 800px;">
+		<form id="demoForm" is="cbn-form" model>
+			<p>Here's a pie chart:</p>
+			<demo-snippet class="centered-demo" style="position:relative">
+				<template is="dom-bind">
+					<cbn-google-chart
+						type='pie'
+						options='{"title": "Distribution of days in 2001H1"}'
+						cols='[{"label": "Month", "type": "string"},{"label": "Days", "type": "number"}]'
+						rows='[["Jan", 31],["Feb", 28],["Mar", 31],["Apr", 30],["May", 31],["Jun", 30]]'>
+					</cbn-google-chart>
+				</template>
+			</demo-snippet>
+		</form>
+	</div>
+	<br/>
 
-  <cbn-google-chart
-    type='line'
-    options='{"title": "Days in a month"}'
-    cols='[{"label": "Month", "type": "string"},{"label": "Days", "type": "number"}]'
-    rows='[["Jan", 31],["Feb", 28],["Mar", 31],["Apr", 30],["May", 31],["Jun", 30]]'>
-  </cbn-google-chart>
+	<div style="margin: 20px auto; width: 800px;">
+		<form id="demoForm" is="cbn-form" model>
+			<p>Here's a scatter chart:</p>
+			<demo-snippet class="centered-demo" style="position:relative">
+				<template is="dom-bind">
+					<cbn-google-chart
+						type='scatter'
+						options='{"legend": "none"}'
+						data='[["A", "B"],
+							   [20, 45],
+							   [31, 66],
+							   [50, 80],
+							   [77, 50],
+							   [68, 15]]'>
+					</cbn-google-chart>
+				</template>
+			</demo-snippet>
+		</form>
+	</div>
+	<br/>
 
-  <p>Here's a pie chart:</p>
+	<div style="margin: 20px auto; width: 800px;">
+		<form id="demoForm" is="cbn-form" model>
+			<p>Here's a stepped area chart:</p>
+			<demo-snippet class="centered-demo" style="position:relative">
+				<template is="dom-bind">
+					<cbn-google-chart
+						type='stepped-area'
+						options='{"title": "Days in a month"}'
+						cols='[{"label": "Month", "type": "string"},{"label": "Days", "type": "number"}]'
+						rows='[["Jan", 31],["Feb", 28],["Mar", 31],["Apr", 30],["May", 31],["Jun", 30]]'>
+					</cbn-google-chart>
+				</template>
+			</demo-snippet>
+		</form>
+	</div>
+	<br/>
 
-  <cbn-google-chart
-    type='pie'
-    options='{"title": "Distribution of days in 2001H1"}'
-    cols='[{"label": "Month", "type": "string"},{"label": "Days", "type": "number"}]'
-    rows='[["Jan", 31],["Feb", 28],["Mar", 31],["Apr", 30],["May", 31],["Jun", 30]]'>
-  </cbn-google-chart>
+	<div style="margin: 20px auto; width: 800px;">
+		<form id="demoForm" is="cbn-form" model>
+			<p>Here's a table chart:</p>
+			<demo-snippet class="centered-demo" style="position:relative">
+				<template is="dom-bind">
+					<cbn-google-chart
+						type="table"
+						options='{"title": "Inventory"}'
+						data='[["Year", "Things", "Stuff"],
+							   ["2004", 1000, 400],
+							   ["2005", 1170, 460],
+							   ["2006", 660, 1120],
+							   ["2007", 1030, 540]]'>
+					</cbn-google-chart>
+				</template>
+			</demo-snippet>
+		</form>
+	</div>
+	<br/>
 
-  <p>Here's a scatter chart:</p>
+	<div style="margin: 20px auto; width: 800px;">
+		<form id="demoForm" is="cbn-form" model>
+			<p>Here are three gauges:</p>
+			<demo-snippet class="centered-demo" style="position:relative">
+				<template is="dom-bind">
+					<cbn-google-chart
+						type='gauge'
+						data='[["Label", "Value"],["Memory", 80],["CPU", 55],["Network", 68]]'
+						options='{"width": 400,
+									"height": 120,
+									"redFrom": 90,
+									"redTo": 100,
+									"yellowFrom":75,
+									"yellowTo": 90,
+									"minorTicks": 5}'>
+					</cbn-google-chart>
+				</template>
+			</demo-snippet>
+		</form>
+	</div>
+	<br/>
 
-  <cbn-google-chart
-    type='scatter'
-    options='{"legend": "none"}'
-    data='[["A", "B"],
-           [20, 45],
-           [31, 66],
-           [50, 80],
-           [77, 50],
-           [68, 15]]'>
-  </cbn-google-chart>
-
-  <p>Here's a stepped area chart:</p>
-
-  <cbn-google-chart
-    type='stepped-area'
-    options='{"title": "Days in a month"}'
-    cols='[{"label": "Month", "type": "string"},{"label": "Days", "type": "number"}]'
-    rows='[["Jan", 31],["Feb", 28],["Mar", 31],["Apr", 30],["May", 31],["Jun", 30]]'>
-  </cbn-google-chart>
-
-  <p>Here's a table chart:</p>
-
-  <cbn-google-chart
-    type="table"
-    options='{"title": "Inventory"}'
-    data='[["Year", "Things", "Stuff"],
-           ["2004", 1000, 400],
-           ["2005", 1170, 460],
-           ["2006", 660, 1120],
-           ["2007", 1030, 540]]'>
-  </cbn-google-chart>
-
-  <p>Here are three gauges:</p>
-
-  <cbn-google-chart
-      type='gauge'
-      data='[["Label", "Value"],["Memory", 80],["CPU", 55],["Network", 68]]'
-      options='{"width": 400,
-                "height": 120,
-                "redFrom": 90,
-                "redTo": 100,
-                "yellowFrom":75,
-                "yellowTo": 90,
-                "minorTicks": 5}'>
-  </cbn-google-chart>
-
-  <p>Here are three gauges with random data that change every three seconds:</p>
-
-  <cbn-google-chart
-      id="mutating_gauge"
-      type="gauge"
-      data='[["Label", "Value"],["Memory", 80],["CPU", 55],["Network", 68]]'
-      options='{"width": 400,
-                "height": 120,
-                "redFrom": 90,
-                "redTo": 100,
-                "yellowFrom": 75,
-                "yellowTo": 90,
-                "minorTicks": 5}'>
-  </cbn-google-chart>
+	<div style="margin: 20px auto; width: 800px;">
+		<form id="demoForm" is="cbn-form" model>
+			<p>Here are three gauges with random data that change every three seconds:</p>
+			<demo-snippet class="centered-demo" style="position:relative">
+				<template is="dom-bind">
+					<cbn-google-chart
+						id="mutating_gauge"
+						type="gauge"
+						data='[["Label", "Value"],["Memory", 80],["CPU", 55],["Network", 68]]'
+						options='{"width": 400,
+									"height": 120,
+									"redFrom": 90,
+									"redTo": 100,
+									"yellowFrom": 75,
+									"yellowTo": 90,
+									"minorTicks": 5}'>
+					</cbn-google-chart>
+				</template>
+			</demo-snippet>
+		</form>
+	</div>
+	<br/>
 
   <script>
     function getRandomGaugeValue(offset, factor) {
@@ -353,41 +531,48 @@
     }, 3000);
   </script>
 
-  <p>Here's a treemap:</p>
-
-  <cbn-google-chart
-      type="treemap"
-      options='{"showScale": true, "maxPostDepth": 2}'
-      data='[["Location", "Parent", "Value"],
-             ["Global", null, 0],
-             ["America", "Global", 0],
-             ["Europe", "Global", 0],
-             ["Asia", "Global", 0],
-             ["Australia", "Global", 0],
-             ["Africa", "Global", 0],
-             ["Brazil", "America", 11],
-             ["USA", "America", 52],
-             ["Mexico", "America", 24],
-             ["Canada", "America", 16],
-             ["France", "Europe", 42],
-             ["Germany", "Europe", 31],
-             ["Sweden", "Europe", 22],
-             ["Italy", "Europe", 17],
-             ["UK", "Europe", 21],
-             ["China", "Asia", 36],
-             ["Japan", "Asia", 20],
-             ["India", "Asia", 40],
-             ["Laos", "Asia", 4],
-             ["Mongolia", "Asia", 1],
-             ["Israel", "Asia", 12],
-             ["Iran", "Asia", 18],
-             ["Pakistan", "Asia", 11],
-             ["Egypt", "Africa", 21],
-             ["S. Africa", "Africa", 30],
-             ["Sudan", "Africa", 12],
-             ["Congo", "Africa", 10],
-             ["Zaire", "Africa", 8]]'>
-  </cbn-google-chart>
-  
+	<div style="margin: 20px auto; width: 800px;">
+		<form id="demoForm" is="cbn-form" model>
+			<p>Here's a treemap:</p>
+			<demo-snippet class="centered-demo" style="position:relative">
+				<template is="dom-bind">
+					<cbn-google-chart
+						type="treemap"
+						options='{"showScale": true, "maxPostDepth": 2}'
+						data='[["Location", "Parent", "Value"],
+								 ["Global", null, 0],
+								 ["America", "Global", 0],
+								 ["Europe", "Global", 0],
+								 ["Asia", "Global", 0],
+								 ["Australia", "Global", 0],
+								 ["Africa", "Global", 0],
+								 ["Brazil", "America", 11],
+								 ["USA", "America", 52],
+								 ["Mexico", "America", 24],
+								 ["Canada", "America", 16],
+								 ["France", "Europe", 42],
+								 ["Germany", "Europe", 31],
+								 ["Sweden", "Europe", 22],
+								 ["Italy", "Europe", 17],
+								 ["UK", "Europe", 21],
+								 ["China", "Asia", 36],
+								 ["Japan", "Asia", 20],
+								 ["India", "Asia", 40],
+								 ["Laos", "Asia", 4],
+								 ["Mongolia", "Asia", 1],
+								 ["Israel", "Asia", 12],
+								 ["Iran", "Asia", 18],
+								 ["Pakistan", "Asia", 11],
+								 ["Egypt", "Africa", 21],
+								 ["S. Africa", "Africa", 30],
+								 ["Sudan", "Africa", 12],
+								 ["Congo", "Africa", 10],
+								 ["Zaire", "Africa", 8]]'>
+					</cbn-google-chart>
+				</template>
+			</demo-snippet>
+		</form>
+	</div>
+	<br/>
 </body>
 </html>
